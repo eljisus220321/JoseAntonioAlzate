@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jardín de Niños José Antonio Alzate</title>
+<style>
+/* Estilos generales */
+html, body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxCLravXQpkGZLmDa6z-LnDO1nGVUOYLInCqrJNk2VCyK-m0l--ZL0FqQ&s=10');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de nieve */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    z-index: 1000;
+    color: white;
+    font-size: 24px;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Estilo del contenido */
+body {
+    color: black;
+    overflow-y: auto; /* Habilitar desplazamiento vertical */
+}
+
+/* Contenedor principal */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 50px 0;
+    z-index: 1; /* Para asegurarse de que el contenido quede sobre la nieve */
+    position: relative;
+}
+
+/* Imagen superior */
+.header-image {
+    text-align: center;
+    margin: 20px 0;
+}
+.header-image img {
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    animation: fadeIn 2s;
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Título */
+.titulo {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    color: black; /* Cambiado de verde a negro */
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Beneficios */
+.beneficios {
+    margin: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+.beneficios ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+.beneficios .left-column {
+    width: 45%;
+}
+.beneficios .right-column {
+    width: 50%;
+}
+
+/* Menú desplegable */
+.menu-desplegable {
+    margin: 40px 0;
+}
+.menu-item {
+    background-color: #34C759;
+    color: #fff;
+    padding: 15px;
+    cursor: pointer;
+    border: 1px solid #2E865F;
+    margin-bottom: 5px;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.menu-item:hover {
+    background-color: #2A754E;
+}
+.menu-content {
+    display: none;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+}
+.menu-content p {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+.menu-content ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* Frase final */
+.frase-final {
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    color: black; /* Cambiado de verde a negro */
+    margin: 50px 0;
+}
+
+/* Marca de agua de copyright */
+.copyright {
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.5); /* Color gris claro */
+    font-style: italic;
+    padding: 20px 0;
+}
+</style>
+<script>
+// Generar los copos de nieve
+function createSnowflakes() {
+    for (let i = 0; i < 100; i++) {
+        let snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.textContent = '❄';
+        snowflake.style.left = Math.random() * 100 + 'vw'; // Posición horizontal aleatoria
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Duración aleatoria de la caída
+        snowflake.style.fontSize = Math.random() * 10 + 15 + 'px'; // Tamaño aleatorio de los copos
+        snowflake.style.animationDelay = Math.random() * 5 + 's'; // Retardo aleatorio en la animación
+        document.body.appendChild(snowflake);
+    }
+}
+createSnowflakes();
+
+// Función para mostrar/ocultar los menús desplegables
+function toggleMenu(id) {
+    const content = document.getElementById(id);
+    content.style.display = content.style.display === "none" ? "block" : "none";
+}
+</script>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Imagen superior -->
+    <div class="header-image">
+        <img src="https://us.123rf.com/450wm/brgfx/brgfx1610/brgfx161000724/64388873-los-estudiantes-de-kinder-en-la-ilustraci%C3%B3n-parque-infantil.jpg?ver=6" alt="Niños jugando en un parque">
+    </div>
+
+    <!-- Título: Oferta Educativa -->
+    <div class="titulo">OFERTA EDUCATIVA</div>
+
+    <!-- Beneficios -->
+    <div class="beneficios">
+        <div class="left-column">
+            <h2>Beneficios</h2>
+            <ul>
+                <li>Desarrollo integral de habilidades cognitivas, emocionales y sociales.</li>
+                <li>Ambiente seguro y estimulante para el aprendizaje.</li>
+                <li>Profesores altamente capacitados.</li>
+                <li>Programas enfocados en valores y principios educativos.</li>
+                <li>Fomento de la creatividad, curiosidad y amor por el aprendizaje.</li>
+            </ul>
+        </div>
+        <div class="right-column">
+            <h2>Por qué elegirnos</h2>
+            <p>En el Jardín de Niños José Antonio Alzate, nos comprometemos con el bienestar y desarrollo de cada niño. Nuestra misión es ofrecer una educación de calidad que los prepare para un futuro brillante.</p>
+        </div>
+    </div>
+
+    <!-- Programas de estudio -->
+    <h2>Programas de Estudio</h2>
+    <div class="menu-desplegable">
+        <div class="menu-item" onclick="toggleMenu('primer-grado')">1er Grado</div>
+        <div id="primer-grado" class="menu-content">
+            <h3>Primer Año (3-4 años)</h3>
+            <p><strong>Objetivo General:</strong> Introducir a los niños al entorno escolar, fomentando su socialización, independencia y habilidades básicas de comunicación.</p>
+            <ul>
+                <li>Desarrollo Personal y Social: Identidad personal, emociones, compartir.</li>
+                <li>Lenguaje: Expresión verbal, cuentos, letras iniciales.</li>
+                <li>Ciencias Naturales: Naturaleza, actividades sensoriales.</li>
+                <li>Matemáticas: Conteo, formas básicas.</li>
+                <li>Arte: Dibujo libre, juegos de rol.</li>
+                <li>Educación Física: Coordinación, juegos al aire libre.</li>
+            </ul>
+        </div>
+
+        <div class="menu-item" onclick="toggleMenu('segundo-grado')">2do Grado</div>
+        <div id="segundo-grado" class="menu-content">
+            <h3>Segundo Año (4-5 años)</h3>
+            <p><strong>Objetivo General:</strong> Fortalecer habilidades de comunicación y socialización en grupo.</p>
+            <ul>
+                <li>Desarrollo Social: Valores, rutinas saludables.</li>
+                <li>Lenguaje: Narración, historias simples.</li>
+                <li>Ciencias: Observación, reciclaje.</li>
+                <li>Matemáticas: Conteo, patrones.</li>
+                <li>Arte: Manualidades, bailes.</li>
+                <li>Educación Física: Juegos en equipo, equilibrio.</li>
+            </ul>
+        </div>
+
+        <div class="menu-item" onclick="toggleMenu('tercer-grado')">3er Grado</div>
+        <div id="tercer-grado" class="menu-content">
+            <h3>Tercer Año (5-6 años)</h3>
+            <p><strong>Objetivo General:</strong> Preparar a los niños para la educación primaria.</p>
+            <ul>
+                <li>Social: Resolución de conflictos, trabajo en equipo.</li>
+                <li>Lenguaje: Escritura, comprensión de textos.</li>
+                <li>Ciencias: Ciclo de vida, cuidado del medio ambiente.</li>
+                <li>Matemáticas: Conteo avanzado, suma y resta.</li>
+                <li>Arte: Teatro, proyectos artísticos.</li>
+                <li>Educación Física: Juegos estructurados, hábitos posturales.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Frase final -->
+    <div class="frase-final">
+        "El Jardín de Niños José Antonio Alzate es el lugar ideal para que tus hijos crezcan, aprendan y desarrollen su máximo potencial. ¡Haz la mejor elección!"
+    </div>
+</div>
+
+<!-- Marca de agua de copyright -->
+<div class="copyright">
+    © 2025 Jardín de Niños José Antonio Alzate. Todos los derechos reservados.
+</div>
+
+</body>
+</html>

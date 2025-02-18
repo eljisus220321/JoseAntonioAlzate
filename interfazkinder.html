@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jardín de Niños José Antonio Alzate</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxCLravXQpkGZLmDa6z-LnDO1nGVUOYLInCqrJNk2VCyK-m0l--ZL0FqQ&s=10');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: transparent;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px;
+  color: #fff;
+}
+
+.logo span {
+  font-size: 18px;
+  color: #fff;
+  display: block;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #2E865F;
+  border-radius: 5px;
+}
+
+.menu li {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  border-bottom: 2px solid #00C4A7;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  display: block;
+  transition: background-color 0.2s ease;
+}
+
+.menu li:hover {
+  background-color: #2C7F58;
+}
+
+.oferta-educativa ul.submenu, .comunidad ul.submenu {
+  display: none;
+  position: absolute;
+  background-color: #2E865F;
+  padding: 10px;
+  border: 1px solid #2C7F58;
+  border-radius: 5px;
+  width: auto;
+}
+
+.oferta-educativa:hover ul.submenu, .comunidad:hover ul.submenu {
+  display: block;
+}
+
+.oferta-educativa ul.submenu li:hover, .comunidad ul.submenu li:hover {
+  background-color: #2C7F58;
+}
+
+.oferta-educativa ul.submenu li {
+  border-bottom: 2px solid #00C4A7;
+}
+
+.logotipo {
+  text-align: center;
+  margin-top: 50px;
+  animation: aparecer 1s ease-in-out;
+}
+
+.logotipo img {
+  width: 600px;
+  height: auto;
+}
+
+.titulo {
+  font-size: 48px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 80px;
+  font-family: 'Arial', sans-serif;
+}
+
+.descripcion {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  line-height: 1.6;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.descripcion strong {
+  font-weight: bold;
+}
+
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.snow .flake {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: snow 5s linear infinite;
+}
+
+.snow .flake:nth-child(odd) {
+  animation-duration: 6s;
+}
+
+.snow .flake:nth-child(even) {
+  animation-duration: 4s;
+}
+
+@keyframes snow {
+  0% {
+    transform: translateY(-100px) translateX(0);
+  }
+  100% {
+    transform: translateY(100vh) translateX(50px);
+  }
+}
+
+.snow .flake {
+  width: 8px;
+  height: 8px;
+  background-color: #B9D9D7;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.snow .flake:nth-child(even) {
+  width: 10px;
+  height: 10px;
+}
+
+.snow .flake:nth-child(odd) {
+  width: 12px;
+  height: 12px;
+}
+
+.mensaje-navidad {
+  font-style: italic;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 100px;
+  font-weight: bold;
+  color: #000;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.mensaje-navidad p {
+  margin: 10px 0;
+}
+
+/* Estilo del botón de WhatsApp */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366; 
+  color: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-btn img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.5;
+  text-align: center;
+  font-style: italic;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+@keyframes aparecer {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.mensaje-navidad-img {
+  text-align: center;
+  margin-top: 30px; /* Ajuste de espacio */
+}
+
+.mensaje-navidad-img img {
+  width: 600px; /* Tamaño igual que el logo */
+  max-width: 100%; /* Asegura que no se desborde en pantallas pequeñas */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+</style>
+</head>
+<body>
+
+<!-- Efecto de nieve -->
+<div class="snow" id="snow">
+  <div class="flake" style="left: 10%; animation-duration: 5s; animation-delay: 0s;"></div>
+  <div class="flake" style="left: 20%; animation-duration: 4s; animation-delay: 2s;"></div>
+  <div class="flake" style="left: 30%; animation-duration: 5s; animation-delay: 4s;"></div>
+  <div class="flake" style="left: 40%; animation-duration: 6s; animation-delay: 6s;"></div>
+  <div class="flake" style="left: 50%; animation-duration: 5s; animation-delay: 8s;"></div>
+  <div class="flake" style="left: 60%; animation-duration: 5s; animation-delay: 1s;"></div>
+  <div class="flake" style="left: 70%; animation-duration: 5s; animation-delay: 3s;"></div>
+  <div class="flake" style="left: 80%; animation-duration: 4s; animation-delay: 5s;"></div>
+</div>
+
+<div class="header">
+  <div class="logo">
+    Jardín de Niños José Antonio Alzate
+    <span>Excelencia Educativa</span>
+  </div>
+  <nav class="menu">
+    <ul>
+      <li class="oferta-educativa">
+        <a href="#">Oferta Educativa</a>
+        <ul class="submenu">
+          <li><a href="#">Aprendizajes Esperados</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Publicaciones</a></li>
+      <li><a href="#">Galerías</a></li>
+    </ul>
+  </nav>
+</div>
+
+<div class="logotipo">
+  <img src="https://cbtalberteinstein.com.mx/wp-content/uploads/2021/07/cropped-iconoLogo.png" alt="Logotipo">
+</div>
+
+<div class="titulo">¿Quiénes somos?</div>
+
+<div class="descripcion">
+  <p><strong>El Jardín de Niños José Antonio Alzate</strong> es una institución educativa que se dedica a ofrecer una educación integral, fomentando los valores, el aprendizaje y el desarrollo de los niños en un ambiente seguro y estimulante.</p>
+</div>
+
+<!-- Mensaje de Navidad -->
+<div class="mensaje-navidad">
+  <p><strong>¡Feliz Navidad y próspero Año Nuevo 2025!</strong></p>
+  <p>Deseamos a todos nuestros estudiantes, padres de familia y maestros unas fiestas llenas de paz, amor y alegría. Que este nuevo año nos traiga muchas bendiciones y momentos inolvidables.</p>
+</div>
+
+<!-- Imagen de Navidad debajo del mensaje de Navidad -->
+<div class="mensaje-navidad-img">
+  <img src="https://png.pngtree.com/png-clipart/20210308/original/pngtree-merry-christmas-and-happy-new-year-text-hand-lettering-png-image_5736456.jpg" alt="Feliz Navidad y próspero Año Nuevo">
+</div>
+
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/525586871279" target="_blank" class="whatsapp-btn">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  Contáctanos
+</a>
+
+<!-- Marca de agua (copyright) -->
+<div class="copyright">
+  © 2025 Jardín de Niños José Antonio Alzate. Todos los derechos reservados.
+</div>
+
+</body>
+</html>

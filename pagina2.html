@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publicaciones - Jardín de Niños José Antonio Alzate</title>
+<style>
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden; /* Evitar que se salgan los copos de nieve */
+}
+
+/* Efecto de nieve */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    z-index: 1000;
+    color: white;
+    font-size: 24px;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #2E865F;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Estilo para lista de publicaciones */
+.publicaciones-lista {
+    margin-top: 40px;
+}
+.publicaciones-lista ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.publicaciones-lista li {
+    background-color: #2A6A3D; /* Verde más fuerte */
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.publicaciones-lista li:hover {
+    background-color: #1F4F2A; /* Un verde más oscuro al pasar el mouse */
+}
+
+/* Enlace a publicaciones */
+.enlace-publicacion {
+    color: #fff;
+    text-decoration: none;
+}
+
+.enlace-publicacion:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para el anuncio de lugares disponibles */
+.anuncio {
+    background-color: rgba(255, 187, 51, 0.8); /* Fondo amarillo con transparencia */
+    color: #000; /* Color de texto negro */
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    position: relative;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS85I22FacKsPBoavCbQTwJDS5noNeAEPosM8kYrCH-ou_aQ9I4ACFu33U&s=10');
+    background-size: cover;
+    background-position: center;
+}
+
+.anuncio:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7); /* Aumentamos la transparencia de la imagen */
+    border-radius: 5px;
+    z-index: 0;
+}
+
+.anuncio-texto {
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilos para el botón flotante de WhatsApp */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366; /* Color de WhatsApp */
+    color: white;
+    padding: 15px 25px; /* Ajustamos el tamaño para incluir texto */
+    border-radius: 50px; /* Botón ovalado */
+    font-size: 20px;
+    display: flex;
+    align-items: center; /* Alineación del texto e ícono */
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-btn img {
+    width: 40px; /* Aumento del tamaño del ícono */
+    height: 40px;
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+}
+
+/* Estilo de la marca de agua */
+.footer {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin-top: 50px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.footer a {
+    color: #888;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para la imagen debajo del evento */
+.imagen-publicacion {
+    display: block;
+    margin: 20px auto;
+    width: 800px; /* Tamaño fijo de las imágenes */
+    height: 533px; /* Mantiene la relación de 3:2 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Efecto de desvanecimiento */
+}
+
+/* Estilo para el mensaje navideño */
+.mensaje-navidad {
+    text-align: center;
+    font-size: 24px;
+    color: #2E865F;
+    font-weight: bold;
+    font-family: "Georgia", serif; /* Tipo de letra elegante */
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin: 20px auto;
+    max-width: 600px; /* Centrado y no demasiado ancho */
+}
+</style>
+</head>
+<body>
+
+<!-- Agregar música de fondo -->
+<audio id="audio" autoplay loop>
+    <source src="https://www.example.com/all_i_want_for_christmas_is_you.mp3" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+
+<div class="container">
+
+    <!-- Título principal -->
+    <h1>Publicaciones del Jardín de Niños José Antonio Alzate</h1>
+
+    <!-- Anuncio de lugares disponibles para segundo grado -->
+    <div class="anuncio">
+        <div class="anuncio-texto">
+            ¡Aún hay lugares disponibles para Segundo Grado! ¡No pierdas la oportunidad de inscribir a tu hijo/a!
+            <br>
+            Contacta con nosotros para más información.
+        </div>
+    </div>
+
+    <!-- Lista de publicaciones -->
+    <div class="publicaciones-lista">
+        <ul>
+            <li><a href="#" class="enlace-publicacion">Noticias del Evento de Navidad 2024</a></li>
+        </ul>
+
+        <!-- Imagen que cambia cada 5 segundos -->
+        <img id="imagenPublicacion" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUJLtbn433ov3agSLBGWfs1aqS618WuWhwIo7JcDdWwHMCKjY-xKiW32I&s=10" 
+             alt="Imagen del Evento de Navidad" 
+             class="imagen-publicacion">
+
+        <!-- Mensaje navideño -->
+        <p class="mensaje-navidad">
+            ¡El Jardín de Niños José Antonio Alzate les desea una<br>
+            *Feliz Navidad y unas Felices Fiestas*!<br>
+            Que esta temporada esté llena de alegría,<br>
+            amor y unión familiar.
+        </p>
+    </div>
+
+</div>
+
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/525586871279" target="_blank" class="whatsapp-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    Contáctanos
+</a>
+
+<!-- Marca de agua -->
+<div class="footer">
+    © Jardín de Niños José Antonio Alzate 2024
+</div>
+
+<!-- Efecto de nieve -->
+<script>
+    // Generar los copos de nieve
+    for (let i = 0; i < 100; i++) {
+        let snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.textContent = '❄';
+        snowflake.style.left = Math.random() * 100 + 'vw'; // Posición horizontal aleatoria
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Duración aleatoria de la caída
+        snowflake.style.fontSize = Math.random() * 10 + 15 + 'px'; // Tamaño aleatorio de los copos
+        document.body.appendChild(snowflake);
+    }
+
+    // Cambiar la imagen cada 5 segundos con efecto de desvanecimiento
+    const imagenes = [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUJLtbn433ov3agSLBGWfs1aqS618WuWhwIo7JcDdWwHMCKjY-xKiW32I&s=10",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsa58KpAJxkgcMeodu3d6IBTPpfhrsPJJgAahEEIbXROCBE6OewW12jETE&s=10",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr_EZNAqye__3W7NURVdL0opo_OTn4j3sESw&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5rdfr_sTcF9DmLA9a_UddTPAuZ7uUWccqm6yQadRBFgok8-rYN_IPu9w&s=10"
+    ];
+    let indice = 0;
+
+    // Función para cambiar la imagen
+    function cambiarImagen() {
+        const imagen = document.getElementById("imagenPublicacion");
+        imagen.style.opacity = 0; // Desvanecer la imagen actual
+
+        setTimeout(() => {
+            imagen.src = imagenes[indice];
+            imagen.style.opacity = 1; // Mostrar la nueva imagen
+            indice = (indice + 1) % imagenes.length; // Cambiar al siguiente índice
+        }, 500); // Esperar 0.5 segundos antes de cambiar la imagen
+    }
+
+    // Cambiar imagen cada 5 segundos
+    setInterval(cambiarImagen, 5000);
+
+    // Cambiar la imagen inicial con desvanecimiento después de 0.5 segundos
+    setTimeout(cambiarImagen, 500);
+
+</script>
+
+</body>
+</html>
